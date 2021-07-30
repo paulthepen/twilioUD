@@ -1,9 +1,9 @@
 {
     "name": "twilio-deved/send-sms-during-inbound-calls",
     "require": {
-        "php": "^7.2.5",
-        "slim/slim": "^4.5.0",
-        "twilio/sdk": "^6.1.0",
+        "php": "^8.0.0",
+        "slim/slim": "^4.8",
+        "twilio/sdk": "^6.27",
         "vlucas/phpdotenv": "^5.2",
         "slim/psr7": "^1.1"
     },

@@ -22,13 +22,25 @@ class App
     $app->post('/answer', function (Request $request, Response $response, array $args) {
       $parsedBody = $request->getParsedBody();
       $caller = $parsedBody['From'];
-      $twilioNumber = $parsedBody['To'];
-      $this->sendSms($caller, $twilioNumber);
+      // $twilioNumber = $parsedBody['To'];
+  $twilio_number = "+12086141361";
+      $accountSid = 'AC86f3674e3860412fd433295a207db4fe';
+      $authToken = 'c7c93b9f8bf3286019a86953749f306d';
+      $client = new Client($accountSid, $authToken);
+
+      $client->messages->create(
+        $caller,
+        [
+            'from' => $twilio_number,
+            'body' => "https://unbounddigital.net",
+        ]
+    );
 
       $twilioResponse = new VoiceResponse();
-      $twilioResponse->say('Thanks for calling! We just sent you a text with a clue.', ['voice' => 'alice']);
+      $twilioResponse->say('Thanks for calling Unbound Digital! We just sent you a text with our information.', ['voice' => 'alice']);
 
       $response->getBody()->write(strval($twilioResponse));
+
       return $response;
     });
 
@@ -48,9 +60,9 @@ class App
 
       try {
           $client->messages->create(
-              $toNumber,
+              '+18652554239',
               [
-                  'from' => $fromNumber,
+                  'from' => "+12086141361",
                   'body' => "There's always money in the banana stand.",
               ]
           );
