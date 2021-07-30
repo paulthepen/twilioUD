@@ -22,10 +22,9 @@ class App
     $app->post('/answer', function (Request $request, Response $response, array $args) {
       $parsedBody = $request->getParsedBody();
       $caller = $parsedBody['From'];
-      // $twilioNumber = $parsedBody['To'];
   $twilio_number = "+12086141361";
-      $accountSid = 'AC86f3674e3860412fd433295a207db4fe';
-      $authToken = 'c7c93b9f8bf3286019a86953749f306d';
+      $accountSid = getenv(AUTH_ID);
+      $authToken = getenv(SECRET_TOKEN);
       $client = new Client($accountSid, $authToken);
 
       $client->messages->create(
@@ -52,29 +51,6 @@ class App
 
     $this->app = $app;
   }
-
-  public function sendSms(string $toNumber, string $fromNumber, Client $client = null): bool {
-      $accountSid = getenv('ACCOUNT_SID');
-      $authToken = getenv('AUTH_TOKEN');
-      $client = $client ?? new Client($accountSid, $authToken);
-
-      try {
-          $client->messages->create(
-              '+18652554239',
-              [
-                  'from' => "+12086141361",
-                  'body' => "There's always money in the banana stand.",
-              ]
-          );
-      } catch (RestException $e) {
-          if ($e->getStatusCode() == 21614) {
-              echo "Uh oh, looks like this caller can't receive SMS messages.";
-              return false;
-          }
-      }
-      return true;
-  }
-
 
   /**
    * Get an instance of the application.
