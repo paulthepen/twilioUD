@@ -31,12 +31,12 @@ class App
                     $caller,
                     [
                         'from' => $twilio_number,
-                        'body' => "https://www.chickensaladchick.com/documents/restaurant-menus/Briston_JC_Menu_2021.pdf",
+                        'body' => "https://www.chickensaladchick.com/documents/restaurant-menus/Bristol_JC_Menu_2021.pdf",
                     ]
                 );
 
                 $twilioResponse = new VoiceResponse();
-                $twilioResponse->say('Check your messages for our menu!', ['voice' => 'Polly.Russell']);
+                $twilioResponse->say('Thank you for calling. Check your messages for our menu!', ['voice' => 'Polly.Russell']);
 
                 $response->getBody()->write(strval($twilioResponse));
 
