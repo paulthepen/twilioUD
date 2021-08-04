@@ -37,6 +37,7 @@ class App
 
                 $twilioResponse = new VoiceResponse();
                 $twilioResponse->say('Thank you for calling. Check your messages for our menu!', ['voice' => 'Polly.Russell']);
+                $twilioResponse->play("https://demo.twilio.com/docs/classic.mp3");
 
                 $response->getBody()->write(strval($twilioResponse));
 
