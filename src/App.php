@@ -48,7 +48,10 @@ class App
 
         $app->get(
             '/', function (Request $request, Response $response, array $args) {
-                $response->getBody()->write('The number is: ' . $args['twilio_number'] . ' and the message is: ' . $args['message_text']);
+                $db = mysqli_connect('localhost', 'twilio_app', '5H!afoNHxD${LJ9#', 'twilio_ud');
+                    $query = mysqli_query($db, 'SELECT * FROM call_sms');
+                    $results = $query->fetch_array(MYSQLI_ASSOC);
+                $response->getBody()->write('The number is: ' . $results['twilio_number'] . ' and the message is: ' . $results['message_text']);
                 return $response;
             }
         );
