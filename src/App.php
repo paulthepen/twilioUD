@@ -17,7 +17,12 @@ class App
     private $app;
 
     public function __construct() {
+        $db = mysqli_connect('localhost', 'twilio_app', '5H!afoNHxD${LJ9#', 'twilio_ud');
+        $query = mysqli_query($db, 'SELECT * FROM call_sms');
+        $results = $query->fetch_array(MYSQLI_ASSOC);
+
         $app = AppFactory::create();
+
         $app->post(
             '/answer', function (Request $request, Response $response, array $args) {
                 $parsedBody = $request->getParsedBody();
@@ -47,8 +52,8 @@ class App
 
         $app->get(
             '/', function (Request $request, Response $response, array $args) {
-              $response->getBody()->write("Please configure your Twilio number to use the /answer endpoint");
-              return $response;
+                $response->getBody()->write('The number is: ' . $this->results['twilio_number'] . ' and the message is: ' . $this->results['message_text']);
+                return $response;
             }
         );
 
