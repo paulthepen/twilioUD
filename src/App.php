@@ -42,7 +42,7 @@ class App
                 );
 
                 $twilioResponse = new VoiceResponse();
-                $twilioResponse->say('The number is: ' . $twilio_number . '. Thank you for calling. Check your messages for our menu!', ['voice' => 'Polly.Russell']);
+                $twilioResponse->say('Thank you for calling. Check your messages for our menu!', ['voice' => 'Polly.Russell']);
                 $twilioResponse->play($results['audio_link']);
 
                 $response->getBody()->write(strval($twilioResponse));
