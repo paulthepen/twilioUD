@@ -21,24 +21,29 @@ class App
 
         $app->post(
             '/answer', function (Request $request, Response $response, array $args) {
+                $db = mysqli_connect('localhost', 'twilio_app', '5H!afoNHxD${LJ9#', 'twilio_ud');
+
                 $parsedBody = $request->getParsedBody();
                 $caller = $parsedBody['From'];
-                $twilio_number = "+12086141361";
+                $twilio_number = $parsedBody['To'];
                 $accountSid = getenv('ACCOUNT_SID');
                 $authToken = getenv('AUTH_TOKEN');
                 $client = new Client($accountSid, $authToken);
+
+                $query = mysqli_query($db, 'SELECT * FROM call_sms WHERE twilio_number="' . $twilio_number . '"');
+                $results = $query->fetch_array(MYSQLI_ASSOC);
 
                 $client->messages->create(
                     $caller,
                     [
                         'from' => $twilio_number,
-                        'body' => "https://www.chickensaladchick.com/documents/restaurant-menus/Bristol_JC_Menu_2021.pdf",
+                        'body' => $results['message_text'],
                     ]
                 );
 
                 $twilioResponse = new VoiceResponse();
-                $twilioResponse->say('Thank you for calling. Check your messages for our menu!', ['voice' => 'Polly.Russell']);
-                $twilioResponse->play("https://demo.twilio.com/docs/classic.mp3");
+                $twilioResponse->say('The number is: ' . $twilio_number . '. Thank you for calling. Check your messages for our menu!', ['voice' => 'Polly.Russell']);
+                $twilioResponse->play($results['audio_link']);
 
                 $response->getBody()->write(strval($twilioResponse));
 
@@ -48,9 +53,7 @@ class App
 
         $app->get(
             '/', function (Request $request, Response $response, array $args) {
-                $db = mysqli_connect('localhost', 'twilio_app', '5H!afoNHxD${LJ9#', 'twilio_ud');
-                    $query = mysqli_query($db, 'SELECT * FROM call_sms');
-                    $results = $query->fetch_array(MYSQLI_ASSOC);
+
                 $response->getBody()->write('The number is: ' . $results['twilio_number'] . ' and the message is: ' . $results['message_text']);
                 return $response;
             }
