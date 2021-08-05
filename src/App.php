@@ -15,10 +15,6 @@ class App
    * @var \Slim\App
    */
     private $app;
-    private $db = mysqli_connect('localhost', 'twilio_app', '5H!afoNHxD${LJ9#', 'twilio_ud');
-    private $query = mysqli_query($this->db, 'SELECT * FROM call_sms');
-    private $results = $this->query->fetch_array(MYSQLI_ASSOC);
-
 
     public function __construct() {
         $app = AppFactory::create();
@@ -52,7 +48,7 @@ class App
 
         $app->get(
             '/', function (Request $request, Response $response, array $args) {
-                $response->getBody()->write('The number is: ' . $this->results['twilio_number'] . ' and the message is: ' . $this->results['message_text']);
+                $response->getBody()->write('The number is: ' . $args['twilio_number'] . ' and the message is: ' . $args['message_text']);
                 return $response;
             }
         );
