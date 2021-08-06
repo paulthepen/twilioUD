@@ -15,7 +15,7 @@ echo ('
     <body>
         <div class="container">
         ');
-        while ($configuration = mysqli_fetch_row($query)) {
+        while ($configuration = $query->fetch_assoc()) {
             echo ( $configuration . '
                 <div class="col-xs-10 col-xs-offset-1">
                     <span>
