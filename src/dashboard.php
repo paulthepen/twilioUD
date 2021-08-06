@@ -15,15 +15,15 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
         <link rel="stylesheet" href="./custom-style.css">
     </head>
     <body>
-        <div class="container">
-            <div class="col-sm-8 col-sm-offset-2" id="content">
+        <div class="container" style="background-color: blue;">
+            <div class="col-sm-8 col-sm-offset-2" id="content" style="background-color: #ddd;">
                 <h1>UD Automated SMS</h1>
                 <?php 
                     while ($configuration = $query->fetch_assoc()) { ?>
                         <div class='col-xs-12'>
                             <h4><?php echo $configuration['name']; ?></h4>
                         </div>
-                        <div class='col-xs-12 form-group'>
+                        <div class='col-xs-12 form-group' style="background-color: #aaa; border: 1px solid black; border-radius: 5px;">
                             <div class='col-xs-4'>
                             <label class='control-label'>Twilio Number</label><input class="form-control" type="text" name="number-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['twilio_number']; ?>" />
                             </div>
