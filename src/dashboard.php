@@ -3,6 +3,7 @@
 $db = mysqli_connect('localhost', 'twilio_app', '5H!afoNHxD${LJ9#', 'twilio_ud');
 $query = mysqli_query($db, 'SELECT * FROM call_sms');
 $configurations = $query->fetch_array(MYSQLI_ASSOC);
+var_dump($configurations);
 
 echo ('
     <html>
