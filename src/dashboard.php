@@ -15,8 +15,8 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
         <script src="https://use.fontawesome.com/3c11e2a10a.js"></script>
     </head>
     <body>
-        <div class="container-fluid" style="background-color: blue;">
-            <div class="col-sm-8 col-sm-offset-2" id="content" style="background-color: #ddd;">
+        <div class="container-fluid" style="background-color: blue; height: 100%">
+            <div class="col-sm-8 col-sm-offset-2" id="content" style="background-color: #ddd; height: 100%">
                 <h1>UD Automated SMS</h1>
                 <?php 
                     while ($configuration = $query->fetch_assoc()) { ?>
@@ -35,7 +35,7 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
                             </div>
                         </div>
                 <?php } ?>
-                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addForm" style="position: fixed; bottom: 25px; right: 75px; "><i class="fa fa-plus-circle"></i></button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addForm" style="position: fixed; bottom: 25px; right: 75px; "><i class="fa fa-3x fa-plus-circle"></i></button>
             </div>
         </div>
     </body>
