@@ -54,6 +54,7 @@ class App
         $app->get(
             '/', function (Request $request, Response $response, array $args) {
 
+                include './src/dashboard.php';
                 $response->getBody()->write('The number is: ' . $results['twilio_number'] . ' and the message is: ' . $results['message_text']);
                 return $response;
             }
