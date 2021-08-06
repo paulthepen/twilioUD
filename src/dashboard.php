@@ -8,6 +8,7 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
 <html>
     <head>
         <title>UD Twilio Dashboard</title>
+        <link rel="stylesheet" href="style.css">
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!-- Latest compiled and minified JavaScript -->
@@ -15,12 +16,16 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
     </head>
     <body>
         <div class="container">
+        <h1>UD Automated SMS</h1>
         <?php 
             while ($configuration = $query->fetch_assoc()) { ?>
-                <div class="col-xs-10 col-xs-offset-1">
-                    <input type="text" value="<?php echo $configuration['twilio_number']; ?>" />
-                    <input type="text" value="<?php echo $configuration['audio_link']; ?>" />
-                    <input type="text" value="<?php echo $configuration['message_text']; ?>" />
+                <div class='col-12'>
+                    <h4><?php echo $configuration['name']; ?></h4>
+                </div>
+                <div class='col-12 form-group'>
+                    <label class='control-label'>Twilio Number</label><input class="form-control" type="text" name="number-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['twilio_number']; ?>" />
+                    <label class='control-label'>Audio Link</label><input class="form-control" type="text" name="audio-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['audio_link']; ?>" />
+                    <label class='control-label'>Message To Text</label><input class="form-control" type="text" name="message-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['message_text']; ?>" />
                 </div>
         <?php } ?>
         </div>
