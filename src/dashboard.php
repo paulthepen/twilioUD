@@ -21,7 +21,7 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
                         <div class='col-xs-12'>
                             <h4><?php echo $configuration['name']; ?></h4>
                         </div>
-                        <div class='d-flex p-2 form-group' style="padding: 10px; background-color: #aaa; border: 1px solid black; border-radius: 5px;">
+                        <div class='d-flex p-2 m-10 form-group' style="padding: 10px; background-color: #aaa; border: 1px solid black; border-radius: 5px;">
                             <div class="flex-fill p-2">
                             <label class='control-label'>Twilio Number</label><input class="form-control" type="text" name="number-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['twilio_number']; ?>" />
                             </div>
