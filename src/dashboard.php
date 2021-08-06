@@ -9,10 +9,8 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
     <head>
         <title>UD Twilio Dashboard</title>
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://use.fontawesome.com/3c11e2a10a.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>        <script src="https://use.fontawesome.com/3c11e2a10a.js"></script>
     </head>
     <body>
         <div class="container-fluid" style="background-color: #004; height: 100%">
@@ -23,7 +21,7 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
                         <div class='col-xs-12'>
                             <h4><?php echo $configuration['name']; ?></h4>
                         </div>
-                        <div class='d-flex form-group' style="padding: 10px; background-color: #aaa; border: 1px solid black; border-radius: 5px;">
+                        <div class='d-flex p-2 form-group' style="padding: 10px; background-color: #aaa; border: 1px solid black; border-radius: 5px;">
                             <div class="p-2">
                             <label class='control-label'>Twilio Number</label><input class="form-control" type="text" name="number-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['twilio_number']; ?>" />
                             </div>
