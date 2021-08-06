@@ -15,7 +15,7 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
         <script src="https://use.fontawesome.com/3c11e2a10a.js"></script>
     </head>
     <body>
-        <div class="container-fluid" style="background-color: blue; height: 100%">
+        <div class="container-fluid" style="background-color: #004; height: 100%">
             <div class="col-sm-8 col-sm-offset-2" id="content" style="background-color: #ddd; height: 100%">
                 <h1>UD Automated SMS</h1>
                 <?php 
@@ -23,7 +23,7 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
                         <div class='col-xs-12'>
                             <h4><?php echo $configuration['name']; ?></h4>
                         </div>
-                        <div class='col-xs-12 form-group' style="background-color: #aaa; border: 1px solid black; border-radius: 5px;">
+                        <div class='col-xs-12 form-group' style="padding: 10px; background-color: #aaa; border: 1px solid black; border-radius: 5px;">
                             <div class='col-xs-4'>
                             <label class='control-label'>Twilio Number</label><input class="form-control" type="text" name="number-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['twilio_number']; ?>" />
                             </div>
@@ -33,6 +33,9 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
                             <div class='col-xs-4'>
                             <label class='control-label'>Message To Text</label><input class="form-control" type="text" name="message-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['message_text']; ?>" />
                             </div>
+                        </div>
+                        <div class='col-xs-12 pull-right'>
+                            <button class="btn btn-primary">Save Changes</button>
                         </div>
                 <?php } ?>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addForm" style="position: fixed; bottom: 25px; right: 75px; "><i class="fa fa-3x fa-plus-circle"></i></button>
