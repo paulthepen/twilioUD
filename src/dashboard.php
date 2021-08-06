@@ -15,7 +15,7 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
     <body>
         <div class="container-fluid" style="background-color: #004; height: 100%">
             <div class="col-sm-8 offset-sm-2" id="content" style="background-color: #ddd; height: 100%">
-                <h1>UD Automated SMS</h1>
+                <h1 class="text-center">UD Automated SMS</h1>
                 <?php 
                     while ($configuration = $query->fetch_assoc()) { ?>
                         <div class='col-xs-12'>
