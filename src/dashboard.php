@@ -16,10 +16,10 @@ echo ('
         <div class="container">
         ');
         while ($configuration = mysqli_fetch_row($query)) {
-            echo ('
+            echo ( $configuration . '
                 <div class="col-xs-10 col-xs-offset-1">
                     <span>
-                        ' . $configuration['number'] . '
+                        ' . $configuration['twilio_number'] . '
                     </span>
                     <span>
                         ' . $configuration['audio_link'] . '
