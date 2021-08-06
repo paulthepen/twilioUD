@@ -1,11 +1,11 @@
-body {
-    background-color: blue;
-}
-
 .container {
-    background-color: white;
+    background-color: blue;
 }
 
 h1 {
     color: blue;
+}
+
+#content {
+    background-color: #ddd;
 }
