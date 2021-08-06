@@ -2,7 +2,6 @@
 
 $db = mysqli_connect('localhost', 'twilio_app', '5H!afoNHxD${LJ9#', 'twilio_ud');
 $query = mysqli_query($db, 'SELECT * FROM call_sms');
-var_dump(mysqli_fetch_row($query));
 
 echo ('
     <html>
@@ -16,7 +15,7 @@ echo ('
     <body>
         <div class="container">
         ');
-        foreach (mysqli_fetch_row($query) as $configuration) {
+        while ($configuration = mysqli_fetch_row($query)) {
             echo ('
                 <div class="col-xs-10 col-xs-offset-1">
                     <span>
