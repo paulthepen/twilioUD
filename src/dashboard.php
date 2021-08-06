@@ -22,16 +22,16 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
                             <h4><?php echo $configuration['name']; ?></h4>
                         </div>
                         <div class='d-flex p-2 form-group' style="padding: 10px; background-color: #aaa; border: 1px solid black; border-radius: 5px;">
-                            <div class="p-2">
+                            <div class="flex-fill p-2">
                             <label class='control-label'>Twilio Number</label><input class="form-control" type="text" name="number-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['twilio_number']; ?>" />
                             </div>
-                            <div class="p-2">
+                            <div class="flex-fill p-2">
                             <label class='control-label'>Audio Link</label><input class="form-control" type="text" name="audio-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['audio_link']; ?>" />
                             </div>
-                            <div class="p-2">
+                            <div class="flex-fill p-2">
                             <label class='control-label'>Message To Text</label><input class="form-control" type="text" name="message-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['message_text']; ?>" />
                             </div>
-                            <div class=".w-20 p-2">
+                            <div class="flex-shrink align-self-end p-2">
                                 <button class="btn btn-primary"><i class="fa fa-save"></i></button>
                             </div>
                         </div>
