@@ -3,8 +3,9 @@
 $db = mysqli_connect('localhost', 'twilio_app', '5H!afoNHxD${LJ9#', 'twilio_ud');
 $query = mysqli_query($db, 'SELECT * FROM call_sms');
 
-echo ('
-    <html>
+?>
+
+<html>
     <head>
         <title>UD Twilio Dashboard</title>
         <!-- Latest compiled and minified CSS -->
@@ -14,24 +15,14 @@ echo ('
     </head>
     <body>
         <div class="container">
-        ');
-        while ($configuration = $query->fetch_assoc()) {
-            echo ( $configuration . '
+        <?php 
+            while ($configuration = $query->fetch_assoc()) { ?>
                 <div class="col-xs-10 col-xs-offset-1">
-                    <span>
-                        ' . $configuration['twilio_number'] . '
-                    </span>
-                    <span>
-                        ' . $configuration['audio_link'] . '
-                    </span>
-                    <span>
-                        ' . $configuration['message_text'] . '
-                    </span>
+                    <input type="text" value="<?php echo $configuration['twilio_number']; ?>" />
+                    <input type="text" value="<?php echo $configuration['audio_link']; ?>" />
+                    <input type="text" value="<?php echo $configuration['message_text']; ?>" />
                 </div>
-            ');
-        }
-    echo ('
-    </div>
+        <?php } ?>
+        </div>
     </body>
-    </html>
-');
+</html>
