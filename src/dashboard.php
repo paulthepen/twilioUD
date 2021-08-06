@@ -12,10 +12,10 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./custom-style.css">
+        <script src="https://use.fontawesome.com/3c11e2a10a.js"></script>
     </head>
     <body>
-        <div class="container" style="background-color: blue;">
+        <div class="container-fluid" style="background-color: blue;">
             <div class="col-sm-8 col-sm-offset-2" id="content" style="background-color: #ddd;">
                 <h1>UD Automated SMS</h1>
                 <?php 
@@ -35,6 +35,7 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
                             </div>
                         </div>
                 <?php } ?>
+                <button class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#addForm" style="position: fixed; bottom: 25px; right: 75px; "><i class="fa fa-plus-circle"></i></button>
             </div>
         </div>
     </body>
