@@ -14,7 +14,7 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
     </head>
     <body>
         <div class="container-fluid" style="background-color: #004; height: 100%">
-            <div class="col-sm-8 col-sm-offset-2" id="content" style="background-color: #ddd; height: 100%">
+            <div class="col-sm-8 offset-sm-2" id="content" style="background-color: #ddd; height: 100%">
                 <h1>UD Automated SMS</h1>
                 <?php 
                     while ($configuration = $query->fetch_assoc()) { ?>
@@ -31,7 +31,7 @@ $query = mysqli_query($db, 'SELECT * FROM call_sms');
                             <div class="p-2">
                             <label class='control-label'>Message To Text</label><input class="form-control" type="text" name="message-<?php echo $configuration['id']; ?>" value="<?php echo $configuration['message_text']; ?>" />
                             </div>
-                            <div class="flex-shrink p-2">
+                            <div class=".w-20 p-2">
                                 <button class="btn btn-primary"><i class="fa fa-save"></i></button>
                             </div>
                         </div>
